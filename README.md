@@ -1,5 +1,8 @@
+
 Наш дом идеально подходит для семейного отдыха, проведения свадеб, дней рождения и других праздничных мероприятий.
+
 👌👍
+
 <img width="2379" height="1320" alt="photo1 jpg" src="https://github.com/user-attachments/assets/191fa7eb-eb2b-4641-8597-98ef78eb66a1" />
 <img width="4000" height="1800" alt="photo2 jpg" src="https://github.com/user-attachments/assets/9f80e19c-dd0d-4ad8-a4e4-733cad91a654" />
 <img width="4000" height="1800" alt="photo3 jpg" src="https://github.com/user-attachments/assets/8351186d-515c-4108-9c59-4e57f174fc07" />
