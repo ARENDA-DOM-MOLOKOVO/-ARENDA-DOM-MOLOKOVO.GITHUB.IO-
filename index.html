@@ -5,196 +5,99 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Аренда дома в Молоково | Посуточно</title>
     <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            margin: 0;
-            padding: 0;
-            color: #333;
-            background-color: #f9f9f9;
-        }
-        header {
-            background-color: #2c3e50;
-            color: white;
-            padding: 40px 20px;
-            text-align: center;
-        }
-        header h1 { margin: 0; font-size: 2.5em; }
-        header p { margin: 10px 0 0; font-size: 1.2em; opacity: 0.9; }
-        .container {
-            max-width: 1000px;
-            margin: 30px auto;
-            padding: 0 20px;
-        }
-        .about, .advantages, .gallery-section, .price-section, .cta, .map-section {
-            background: white;
-            padding: 30px;
-            margin-bottom: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-        }
-        h2 { color: #2c3e50; border-bottom: 2px solid #ecf0f1; padding-bottom: 10px; }
-        ul { padding-left: 20px; }
-        li { margin-bottom: 10px; line-height: 1.6; }
+        body { font-family: 'Segoe UI', Arial, sans-serif; line-height: 1.6; margin: 0; padding: 0; background: #f8f9fa; color: #333; }
+        header { background: #2c3e50; color: #fff; padding: 40px 20px; text-align: center; }
+        header h1 { margin: 0; font-size: 2.2rem; }
+        header p { margin: 10px 0 0; opacity: 0.9; font-size: 1.1rem; }
+        .container { max-width: 1000px; margin: 30px auto; padding: 25px; background: #fff; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
+        h2 { color: #2c3e50; border-bottom: 2px solid #ecf0f1; padding-bottom: 8px; margin-top: 30px; }
+        .price { font-size: 22px; color: #e74c3c; font-weight: bold; background: #fdf2f2; padding: 10px 15px; border-left: 5px solid #e74c3c; display: inline-block; margin: 10px 0; border-radius: 0 4px 4px 0; }
         
-        /* Стили для галереи фотографий */
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 15px;
-            margin-top: 20px;
+        /* Красивая сетка для 14 фотографий */
+        .gallery { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+            gap: 15px; 
+            margin-top: 20px; 
         }
-        .gallery-item {
-            overflow: hidden;
-            border-radius: 6px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            height: 200px;
-            background-color: #eaeaea; /* Серый фон на время загрузки картинок */
+        .gallery img { 
+            width: 100%; 
+            height: 220px; 
+            object-fit: cover; /* Фотографии аккуратно подрезаются под один размер, не растягиваясь */
+            border-radius: 8px; 
+            box-shadow: 0 4px 6px rgba(0,0,0,0.06); 
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            cursor: pointer;
         }
-        .gallery-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.3s ease;
-            display: block;
-        }
-        .gallery-item img:hover {
-            transform: scale(1.05);
-        }
-
-        /* Стили для блока цен */
-        .price-card {
-            background: #f8f9fa;
-            border-left: 5px solid #2c3e50;
-            padding: 15px 20px;
-            margin-top: 15px;
-            border-radius: 0 6px 6px 0;
-        }
-        .price-value {
-            font-size: 1.4em;
-            color: #27ae60;
-            font-weight: bold;
+        .gallery img:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
         }
 
         /* Стили для кнопок связи */
-        .buttons-container {
-            display: flex;
-            gap: 15px;
-            justify-content: center;
-            flex-wrap: wrap;
-            margin-top: 20px;
-        }
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            color: white;
-            padding: 15px 30px;
-            text-decoration: none;
-            border-radius: 5px;
-            font-weight: bold;
-            font-size: 1.1em;
-            transition: background 0.3s;
-        }
-        .btn-wa { background-color: #25D366; }
-        .btn-wa:hover { background-color: #20ba56; }
-        .btn-tg { background-color: #0088cc; }
-        .btn-tg:hover { background-color: #0077b5; }
-        
-        /* Исправленный адаптивный контейнер для карты Яндекса */
-        .map-container {
-            position: relative;
-            overflow: hidden;
-            width: 100%;
-            height: 450px;
-            border-radius: 6px;
-            border: 1px solid #e0e0e0;
-        }
-        .map-container iframe {
-            width: 100%;
-            height: 100%;
-            border: 0;
-        }
-        
-        footer { text-align: center; padding: 20px; color: #7f8c8d; font-size: 0.9em; }
+        .contacts-block { margin-top: 20px; }
+        .btn { display: inline-block; color: #fff; padding: 12px 24px; text-decoration: none; border-radius: 6px; font-weight: bold; margin: 5px 10px 5px 0; transition: background 0.2s; }
+        .btn-phone { background: #2c3e50; }
+        .btn-phone:hover { background: #34495e; }
+        .btn-wa { background: #25D366; }
+        .btn-wa:hover { background: #21b858; }
+        .btn-tg { background: #0088cc; }
+        .btn-tg:hover { background: #0077b3; }
     </style>
 </head>
 <body>
 
     <header>
-        <h1>🏡 ARENDA-DOM-MOLKKOVO</h1>
-        <p>Уютный загородный дом в Московской области для вашего отдыха и праздников</p>
+        <h1>Уютный загородный дом в Молоково</h1>
+        <p>Посуточная аренда для семейного отдыха и уютных вечеров</p>
     </header>
 
     <div class="container">
-        <section class="about">
-            <h2>О нашем доме</h2>
-            <p>Добро пожаловать! Предлагаем в аренду комфортабельный загородный дом в живописном поселке Молоково (Ленинский район). Мы создали все условия как для спокойного семейного уикенда, так и для проведения масштабных праздников: свадеб, юбилеев, дней рождения и корпоративов.</p>
-        </section>
+        <h2>О нашем доме</h2>
+        <p>Добро пожаловать! Предлагаем в аренду комфортабельный загородный дом в живописном поселке Молоково. У нас есть всё необходимое для незабываемого отдыха, перезагрузки за городом и проведения приятного времени с близкими.</p>
+        
+        <h2>Фотографии дома и территории</h2>
+        <div class="gallery">
+            <!-- 🔽 Замените названия ниже на ТОЧНЫЕ имена ваших 14 файлов 🔽 -->
+            <img src="photo1.jpg" alt="Фото дома 1">
+            <img src="photo2.jpg" alt="Фото дома 2">
+            <img src="photo3.jpg" alt="Фото дома 3">
+            <img src="photo4.jpg" alt="Фото дома 4">
+            <img src="photo5.jpg" alt="Фото дома 5">
+            <img src="photo6.jpg" alt="Фото дома 6">
+            <img src="photo7.jpg" alt="Фото дома 7">
+            <img src="photo8.jpg" alt="Фото дома 8">
+            <img src="photo9.jpg" alt="Фото дома 9">
+            <img src="photo10.jpg" alt="Фото дома 10">
+            <img src="photo11.jpg" alt="Фото дома 11">
+            <img src="photo12.jpg" alt="Фото дома 12">
+            <img src="photo13.jpg" alt="Фото дома 13">
+            <img src="photo14.jpg" alt="Фото дома 14">
+        </div>
 
-        <!-- Обновленная секция с точными относительными путями картинок -->
-        <section class="gallery-section">
-            <h2>Фотографии нашего дома</h2>
-            <p>Посмотрите, как выглядит наш уютный дом внутри и снаружи:</p>
-            <div class="gallery-grid">
-                <div class="gallery-item"><img src="./photo1.jpg" alt="Фото дома 1"></div>
-                <div class="gallery-item"><img src="./photo2.jpg" alt="Фото дома 2"></div>
-                <div class="gallery-item"><img src="./photo3.jpg" alt="Фото дома 3"></div>
-                <div class="gallery-item"><img src="./photo4.jpg" alt="Фото дома 4"></div>
-                <div class="gallery-item"><img src="./photo5.jpg" alt="Фото дома 5"></div>
-                <div class="gallery-item"><img src="./photo6.jpg" alt="Фото дома 6"></div>
-                <div class="gallery-item"><img src="./photo7.jpg" alt="Фото дома 7"></div>
-                <div class="gallery-item"><img src="./photo8.jpg" alt="Фото дома 8"></div>
-                <div class="gallery-item"><img src="./photo9.jpg" alt="Фото дома 9"></div>
-                <div class="gallery-item"><img src="./photo10.jpg" alt="Фото дома 10"></div>
-                <div class="gallery-item"><img src="./photo11.jpg" alt="Фото дома 11"></div>
-                <div class="gallery-item"><img src="./photo12.jpg" alt="Фото дома 12"></div>
-                <div class="gallery-item"><img src="./photo13.jpg" alt="Фото дома 13"></div>
-                <div class="gallery-item"><img src="./photo14.jpg" alt="Фото дома 14"></div>
-            </div>
-        </section>
+        <h2>Удобства и преимущества</h2>
+        <ul>
+            <li>Комфортные спальные места и всегда свежее постельное белье</li>
+            <li>Полностью оборудованная кухня (плита, посуда, холодильник, микроволновка)</li>
+            <li>Мангальная зона со всем необходимым и уютная беседка на территории</li>
+            <li>Парковка для автомобилей на закрытой территории</li>
+            <li>Тишина, чистый воздух и приватность всего в нескольких километрах от МКАД</li>
+        </ul>
 
-        <section class="advantages">
-            <h2>Удобства и преимущества:</h2>
-            <ul>
-                <li><strong>Просторный банкетный зал</strong> — комфортное размещение всех ваших гостей.</li>
-                <li><strong>Уютные спальные места</strong> — чистая и комфортная зона отдыха после праздника.</li>
-                <li><strong>Благоустроенная территория</strong> — зона для барбекю, мангал и беседка на свежем воздухе.</li>
-                <li><strong>Удобная парковка</strong> — места для автомобилей прямо у дома.</li>
-                <li><strong>Чистый воздух и тишина</strong> — отличная перезагрузка всего в нескольких километрах от МКАД.</li>
-            </ul>
-        </section>
+        <h2>Стоимость проживания</h2>
+        <div class="price">Цена: от 5 000 руб. / сутки</div>
+        <p style="font-size: 0.9rem; color: #666;"><i>* Точная стоимость зависит от дней недели, праздников и количества гостей. Пожалуйста, уточняйте при бронировании.</i></p>
 
-        <section class="price-section">
-            <h2>Стоимость проживания</h2>
-            <p>Мы предлагаем гибкие условия бронирования в зависимости от дней недели:</p>
-            <div class="price-card">
-                <p>• <strong>Выходные и праздничные дни:</strong> <span class="price-value">15 000 руб. / сутки</span></p>
-                <p>• <strong>Будние дни:</strong> стоимость уточняйте при бронировании (действуют скидки при долгосрочной аренде).</p>
-            </div>
-            <p style="font-size: 0.9em; color: #7f8c8d; margin-top: 10px;">* Окончательная цена может зависеть от количества гостей и формата мероприятия.</p>
-        </section>
-
-        <section class="map-section">
-            <h2>Как к нам добраться</h2>
-            <p>Наш дом находится по адресу: <strong>Московская область, Ленинский район, с. Молоково, ул. Строительная, д. 16</strong></p>
-            <div class="map-container">
-                <!-- Обновленная независимая интерактивная карта API Яндекс -->
-                <iframe src="https://yandex.ru" allowfullscreen="true"></iframe>
-            </div>
-        </section>
-
-        <section class="cta">
-            <h2>Забронировать нужные даты</h2>
-            <p>Узнайте актуальную стоимость аренды и свободные дни прямо сейчас у владельца:</p>
-            <div class="buttons-container">
-                <a href="https://wa.me" target="_blank" class="btn btn-wa">💬 Написать в WhatsApp</a>
-                <a href="https://t.me" target="_blank" class="btn btn-tg">✈️ Написать в Telegram</a>
-            </div>
-        </section>
+        <h2>Как забронировать?</h2>
+        <p>Выберите любой удобный способ связи, чтобы задать вопрос или забронировать нужные даты:</p>
+        <div class="contacts-block">
+            <!-- ℹ️ Замените +79991234567 на ваш телефон (в ссылках wa.me и tel: пишите без плюсов и пробелов) -->
+            <a href="tel:79991234567" class="btn btn-phone">📞 Позвонить</a>
+            <a href="https://wa.me" class="btn btn-wa" target="_blank">💬 WhatsApp</a>
+            <!-- ℹ️ Замените ваш_логин на ваш никнейм в Telegram без значка @ -->
+            <a href="https://t.me" class="btn btn-tg" target="_blank">✈️ Telegram</a>
+        </div>
     </div>
-
-    <footer>
-        <p>&copy; 2026 ARENDA-DOM-MOLKKOVO. Все права защищены.</p>
-    </footer>
 
 </body>
 </html>
