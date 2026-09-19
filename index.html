@@ -13,7 +13,7 @@
         h2 { color: #2c3e50; border-bottom: 2px solid #ecf0f1; padding-bottom: 8px; margin-top: 30px; }
         .price { font-size: 22px; color: #e74c3c; font-weight: bold; background: #fdf2f2; padding: 10px 15px; border-left: 5px solid #e74c3c; display: inline-block; margin: 10px 0; border-radius: 0 4px 4px 0; }
         
-        /* Красивая сетка для 14 фотографий */
+        /* Сетка для 14 фотографий */
         .gallery { 
             display: grid; 
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
@@ -23,18 +23,29 @@
         .gallery img { 
             width: 100%; 
             height: 220px; 
-            object-fit: cover; /* Фотографии аккуратно подрезаются под один размер, не растягиваясь */
+            object-fit: cover; 
             border-radius: 8px; 
             box-shadow: 0 4px 6px rgba(0,0,0,0.06); 
             transition: transform 0.2s ease, box-shadow 0.2s ease;
-            cursor: pointer;
         }
         .gallery img:hover {
             transform: translateY(-3px);
             box-shadow: 0 6px 12px rgba(0,0,0,0.15);
         }
 
-        /* Стили для кнопок связи */
+        /* Адаптивный контейнер для Яндекс Карты */
+        .map-container { 
+            width: 100%; 
+            overflow: hidden; 
+            border-radius: 12px; 
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08); 
+            margin-top: 20px; 
+        }
+        .map-container ymaps { 
+            max-width: 100%; 
+        }
+
+        /* Кнопки связи */
         .contacts-block { margin-top: 20px; }
         .btn { display: inline-block; color: #fff; padding: 12px 24px; text-decoration: none; border-radius: 6px; font-weight: bold; margin: 5px 10px 5px 0; transition: background 0.2s; }
         .btn-phone { background: #2c3e50; }
@@ -58,13 +69,12 @@
         
         <h2>Фотографии дома и территории</h2>
         <div class="gallery">
-            <!-- 🔽 Замените названия ниже на ТОЧНЫЕ имена ваших 14 файлов 🔽 -->
-            <img src="photo1.jpg—char.jpg" alt="Фото дома 1">
+            <img src="photo1.jpg.jpg" alt="Фото дома 1">
             <img src="photo2.jpg.jpg" alt="Фото дома 2">
-            <img src="photo3.jpg—шар.jpg" alt="Фото дома 3">
-            <img src="photo4.jpg.jpg" alt="Фото дома 4">
-            <img src="photo5.jpg—star.jpg" alt="Фото дома 5">
-            <img src="photo6.jpg—char.jpg" alt="Фото дома 6">
+            <img src="photo3.jpg—char.jpg" alt="Фото дома 3">
+            <img src="photo4.jpg—char.jpg" alt="Фото дома 4">
+            <img src="photo5.jpg.jpg" alt="Фото дома 5">
+            <img src="photo6.jpg.jpg" alt="Фото дома 6">
             <img src="photo7.jpg.jpg" alt="Фото дома 7">
             <img src="photo8.jpg.jpg" alt="Фото дома 8">
             <img src="photo9.jpg.jpg" alt="Фото дома 9">
@@ -73,6 +83,12 @@
             <img src="photo12.jpg.jpg" alt="Фото дома 12">
             <img src="photo13.jpg.jpg" alt="Фото дома 13">
             <img src="photo14.jpg.jpg" alt="Фото дома 14">
+        </div>
+
+        <h2>Как к нам добраться (Карта проезда)</h2>
+        <div class="map-container">
+            <!-- Ваша интерактивная Яндекс Карта -->
+            <script type="text/javascript" charset="utf-8" async src="https://yandex.ru"></script>
         </div>
 
         <h2>Удобства и преимущества</h2>
@@ -91,10 +107,9 @@
         <h2>Как забронировать?</h2>
         <p>Выберите любой удобный способ связи, чтобы задать вопрос или забронировать нужные даты:</p>
         <div class="contacts-block">
-            <!-- ℹ️ Замените +79991234567 на ваш телефон (в ссылках wa.me и tel: пишите без плюсов и пробелов) -->
-            <a href="tel:79991234567" class="btn btn-phone">📞 Позвонить</a>
+            <!-- ℹ️ Ваши контакты обновлены! -->
+            <a href="tel:79260746819" class="btn btn-phone">📞 Позвонить</a>
             <a href="https://wa.me" class="btn btn-wa" target="_blank">💬 WhatsApp</a>
-            <!-- ℹ️ Замените ваш_логин на ваш никнейм в Telegram без значка @ -->
             <a href="https://t.me" class="btn btn-tg" target="_blank">✈️ Telegram</a>
         </div>
     </div>
